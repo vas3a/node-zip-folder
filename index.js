@@ -15,11 +15,7 @@ function zipFolder(srcFolder, zipFilePath, callback) {
 		{ cwd: srcFolder, src: ['**/*'], expand: true }
 	]);
 
-	zipArchive.finalize(function(err, bytes) {
-		if(err) {
-			callback(err);
-		}
-	});
+	zipArchive.finalize(callback);
 }
 
 module.exports = zipFolder;
